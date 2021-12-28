@@ -1,0 +1,44 @@
+{
+  "module": "user", // 接口模块
+  "status": "已归档", // 状态
+  "version": "v1", // 版本
+  "baseUrl": "http://127.0.0.1", // 接口基础地址，默认继承全局属性
+  "prefix": "user", // 模块接口前缀，默认module字段
+  "commonHeaders": {}, // 模块公共请求头，与模块自定义请求合并
+  "commonQueries": {
+    "[optional] 可选参数": "optional",
+    "required 必选参数": "required"
+  }, // 模块公共查询参数，与全局、模块自定义请求queries合并，仅支持get请求方式
+  "commonBody": {
+    "[optional] 可选参数": "optional",
+    "required 必选参数": "required"
+  }, // 模块公共请求体参数，与全局、模块自定义请求body合并
+  "commonReturns": {
+    "code 参照全局状态码": 200,
+    "data 业务数据，无业务数据时该字段为null": {},
+    "message 服务端消息": "success",
+    "isSuccess isSuccess为true时仅表示接口通信成功，不代表业务成功，业务成功根据code判断": true
+  }, // 模块公共返回信息，默认继承全局返回，用于指定接口返回的固定包装结构
+  "apis": {
+    // 接口名称
+    "login": {
+      "title": "用户登录", // 接口标签，未指定默认接口key
+      "describe": "用户登录", // 接口详细描述
+      "status": "开发中", // 当前接口状态
+      "url": "http://127.0.0.1:8080/api/user/login", // 自定义接口完整路径，优先级高于baseUrl+version+prefix+path路径
+      "path": "user", // 接口路径，默认接口key，与baseUrl、version、prefix拼接
+      "method": "post", // 请求方法
+      "headers": {}, // 请求头，与全局、模块请求头覆盖式合并
+      "queries": {
+        "[optional] 可选参数": "optional",
+        "required 必选参数": "required"
+      }, // get请求query参数，与全局、模块queries覆盖式合并
+      "body": {
+        "[optional] 可选参数": "optional",
+        "required 必选参数": "required"
+      }, // 请求体参数
+      "returns": {}, // 接口返回的业务参数，将替换全局、模块commonReturns的data字段
+      "customReturns": {} // 自定义返回，用于指定特定接口非同一形式的返回
+    }
+  } // 模块内所有接口
+}
